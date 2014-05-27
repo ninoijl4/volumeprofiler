@@ -7,9 +7,34 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    <Page.Resources>
+        <DataTemplate x:Key="StoreFrontTileTemplate">
+            <local:ItemViewer/>
+        </DataTemplate>
+        <Style x:Key="StoreFrontTileStyle" TargetType="GridViewItem">
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="Height" Value="80" />
+            <Setter Property="Width" Value="290" />
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Margin" Value="0,0,8,8"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="VerticalContentAlignment" Value="Top"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="TabNavigation" Value="Local"/>
+        </Style>
+    </Page.Resources>
     <Grid>
-        <TextBlock Text="Profiles" Margin="12" FontSize="42" />        
+        <TextBlock Text="Profiles" Margin="12" FontSize="42" />  
         
+        <GridView x:Name="grvProfiles"
+            Background="{StaticResource ApplicationPageBackgroundThemeBrush}" 
+            ItemTemplate="{StaticResource StoreFrontTileTemplate}" 
+            ItemContainerStyle="{StaticResource StoreFrontTileStyle}" 
+            ShowsScrollingPlaceholders="False" 
+            ContainerContentChanging="grvProfiles_ContainerContentChanging" 
+            VerticalAlignment="Top" 
+            ScrollViewer.VerticalScrollBarVisibility="Auto" 
+            ScrollViewer.HorizontalScrollBarVisibility="Auto" SelectionMode="None">
+        </GridView>
     </Grid>
 </Page>

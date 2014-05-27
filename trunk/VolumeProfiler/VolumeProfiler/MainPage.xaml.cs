@@ -44,5 +44,10 @@ namespace VolumeProfiler
             // If you are using the NavigationHelper provided by some templates,
             // this event is handled for you.
         }
+
+        private void grvProfiles_ContainerContentChanging(ListViewBase sender, ContainerContentChangingEventArgs args)
+        {
+
+        }
     }
 }
